@@ -19,7 +19,7 @@ class HashTable
   int numSlots; //the k from encoder
   Node** table;
   Node* createNode(const string &key);
-  int hash_function(const string &s)
+  int hash_function(const string &s);
   public:
   HashTable(int slots); //numslots = slots
   ~HashTable();

@@ -38,6 +38,12 @@ int main() {
 
     // Your time to shine starts now
 
+    HashTable ht(k);
+    for (int i = 0; i < n; i++)
+    {
+        ht.insert(texts[i]);
+    }
+
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
 
     cout << "==== Printing the slot lengths ====" << endl;

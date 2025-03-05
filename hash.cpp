@@ -15,7 +15,7 @@ return newNode;
 
 
 /*hash function that multiplies each characters ascii value by a prime and then mixes the bits up using a right shift and xor*/
-int HashTable::hash_function(const string text) {
+int HashTable::hash_function(const string &text) {
     // Implement your own hash function here
     return 1;
 }
@@ -23,9 +23,9 @@ int HashTable::hash_function(const string text) {
 /*contructor, each table has to have nodes that are the start of their chains; initializes these to null*/
 HashTable::HashTable(int slots)
 {
-numslots = slots;
-table = new Node*[numslots]; //array of pointers to each node in table
-for (int i = 0; i < numslots; i++)
+numSlots = slots;
+table = new Node*[numSlots]; //array of pointers to each node in table
+for (int i = 0; i < numSlots; i++)
 {
     table[i] = nullptr;
 }
@@ -34,9 +34,9 @@ for (int i = 0; i < numslots; i++)
 }
 /*destructor since using new and pointers*/
 //1->2->null becomes null->2->null after one iteration, then null->null->null
-Hashtable::~HasTable()
+HashTable::~HashTable()
 {
-for(int i = 0; i < numslots; i++)
+for(int i = 0; i < numSlots; i++)
 {
     Node* current = table[i];
     while(current)
@@ -49,6 +49,31 @@ for(int i = 0; i < numslots; i++)
 delete[] table;
 
 }
+
+void HashTable::printfirstfive()
+{
+for(int i = 0; i < 5; i++)
+{
+ cout << "Slot " << i << ": ";
+ Node* current = table[i];
+ while (current)
+ {
+    cout << current->key << " ";
+    current = current->next;
+ }
+ cout << endl;
+}
+}
+void HashTable::insert(const string &key)
+{
+ int index = hash_function(key) % numSlots;
+ Node* newNode = createNode(key);
+ newNode->next = table[index];
+ table[index] = newNode;
+
+}
+
+
 
 /* to do
 print first five
