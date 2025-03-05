@@ -1,2 +1,2 @@
 all:
-	g++ -o matchaencoder main.cpp hash.cpp
+	g++ -o encoder main.cpp hash.cpp
