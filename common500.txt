@@ -1,4 +1,11 @@
-==== Printing the contents of the first 5 slots ====
-Slot 0: 
-Slot 1: 
-Slot 2: 
+10
+string
+value
+meow
+thing
+spiderman
+humantorch
+magik
+frieren
+marvelrivals
+huzz
