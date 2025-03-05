@@ -38,17 +38,20 @@ int main() {
 
     // Your time to shine starts now
 
-    HashTable ht(k);
+    HashTable hashTable(k);
     for (int i = 0; i < n; i++)
     {
-        ht.insert(texts[i]);
+        hashTable.insert(texts[i]);
     }
 
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
+    hashTable.printfirstfive();
 
     cout << "==== Printing the slot lengths ====" << endl;
+    hashTable.printSlotLengths();
 
     cout << "==== Printing the standard variance =====" << endl;
+    cout << hashTable.standardVariance() << endl;
 
     return 0;
 }

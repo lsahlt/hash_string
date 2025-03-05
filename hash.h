@@ -26,6 +26,7 @@ class HashTable
   void insert(const string &key);
   void printfirstfive();
   double standardVariance();
+  void printSlotLengths();
 
 
 };

@@ -15,9 +15,19 @@ return newNode;
 
 
 /*hash function that multiplies each characters ascii value by a prime and then mixes the bits up using a right shift and xor*/
-int HashTable::hash_function(const string &text) {
-    // Implement your own hash function here
-    return 1;
+int HashTable::hash_function(const string &s) 
+{
+    unsigned int hash_value=0;
+for(int i = 0; i < s.size(); i++)
+{
+    int ascii = static_cast<int>(s[i]);
+    int product = ascii * 83;
+    int shifted = product >> 8;
+    int mixymix = product ^ shifted;
+    hash_value = hash_value ^ mixymix;
+    
+}
+return hash_value % numSlots;
 }
 
 /*contructor, each table has to have nodes that are the start of their chains; initializes these to null*/
@@ -71,6 +81,48 @@ void HashTable::insert(const string &key)
  newNode->next = table[index];
  table[index] = newNode;
 
+}
+double HashTable::standardVariance()
+{
+    double sum = 0.0;
+    int* lengths = new int[numSlots];
+    for(int i = 0; i<numSlots; i++)
+    {
+        int length = 0;
+        Node* current = table[i];
+        while(current)
+        {
+            length++;
+            current = current->next;
+        }
+        lengths[i] = length;
+        sum+= length;
+    }
+    double mean = sum / numSlots;
+    double variance_sum = 0.0;
+    for(int i = 0; i < numSlots; i++)
+    {
+        double dif = lengths[i]-mean;
+        variance_sum += dif*dif;
+    }
+    delete[]lengths;
+    double variance = variance_sum / numSlots;
+    return sqrt(variance);
+}
+
+void HashTable::printSlotLengths()
+{
+    for(int i = 0; i<numSlots; i++)
+    {
+        int length = 0;
+        Node* current = table[i];
+        while (current)
+        {
+            length++;
+            current = current->next;
+        }
+        cout << "slot "<<i<< " length:" << length << endl;
+    }
 }
 
 
