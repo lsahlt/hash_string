@@ -65,11 +65,15 @@ void HashTable::printfirstfive()
 {
 for(int i = 0; i < 5; i++)
 {
- cout << "Slot " << i << ": ";
+ cout << "Slot " << i << ":";
  Node* current = table[i];
+ if (current){
+    cout<<" "<< current->key;
+    current = current->next;
+ }
  while (current)
  {
-    cout << current->key << " ";
+    cout << " " << current->key;
     current = current->next;
  }
  cout << endl;
@@ -123,7 +127,7 @@ void HashTable::printSlotLengths()
             length++;
             current = current->next;
         }
-        cout << "slot "<<i<< " length:" << length << endl;
+        cout << "Slot "<<i<< ": " << length << endl;
     }
 }
 

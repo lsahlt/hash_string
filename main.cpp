@@ -50,7 +50,7 @@ int main() {
     cout << "==== Printing the slot lengths ====" << endl;
     hashTable.printSlotLengths();
 
-    cout << "==== Printing the standard variance =====" << endl;
+    cout << "==== Printing the standard deviation =====" << endl;
     cout << hashTable.standardVariance() << endl;
 
     return 0;
