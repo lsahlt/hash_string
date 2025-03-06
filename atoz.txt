@@ -1,4 +1,4 @@
-494
+100
 apple
 banana
 cherry
@@ -493,3 +493,9 @@ wonton_soup
 xigua_smoothie
 yakisoba
 zrazy
+meow
+magik
+marvelrivals
+huzz
+bruzz
+chopped

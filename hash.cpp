@@ -22,7 +22,7 @@ for(int i = 0; i < s.size(); i++)
 {
     char c = tolower(s[i]);
     int ascii = static_cast<int>(s[i]);
-    int product = ascii * 331; //83 other lucky number, large input is 1.055 small is .63 ish with 83
+    int product = ascii * 83; // 83 seems to be best
     int shifted = product >> 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
