@@ -1,3 +1,3 @@
-Team members: Rogelio Corrales(), Anthony Garcia()
+Team members: Rogelio Corrales(), Anthony Garcia(1)
 Hash Function:
 We took inspiration from an existing hashing method, rolling polynomial, except ours is more like rolling multiplication while also incorporating bit shifting to further mix up the output of the hash function. With just a rolling multiplication hash there would be more collisions. What our function does is take the ascii value of a character in a string, multiply it by a  prime (to be determined after testing) and then shift the binary representation of the result right a certain number of times(also to be determined after testing).

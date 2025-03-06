@@ -21,8 +21,8 @@ int HashTable::hash_function(const string &s)
 for(int i = 0; i < s.size(); i++)
 {
     int ascii = static_cast<int>(s[i]);
-    int product = ascii * 83;
-    int shifted = product >> 8;
+    int product = ascii * 331; //83 other lucky number, large input is 1.055 small is .63 ish with 83
+    int shifted = product >> 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
     
@@ -59,7 +59,7 @@ for(int i = 0; i < numSlots; i++)
 delete[] table;
 
 }
-
+//prints first five
 void HashTable::printfirstfive()
 {
 for(int i = 0; i < 5; i++)
@@ -82,6 +82,7 @@ void HashTable::insert(const string &key)
  table[index] = newNode;
 
 }
+//calculate variance
 double HashTable::standardVariance()
 {
     double sum = 0.0;
@@ -109,7 +110,7 @@ double HashTable::standardVariance()
     double variance = variance_sum / numSlots;
     return sqrt(variance);
 }
-
+//slot lengths
 void HashTable::printSlotLengths()
 {
     for(int i = 0; i<numSlots; i++)
@@ -128,7 +129,4 @@ void HashTable::printSlotLengths()
 
 
 /* to do
-print first five
-print lengths
-standard variance
-hash function*/
+test with different prime numbers and bit shift amounts*/
