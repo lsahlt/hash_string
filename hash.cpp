@@ -21,7 +21,7 @@ int HashTable::hash_function(const string &s)
 for(int i = 0; i < s.size(); i++)
 {
     char c = tolower(s[i]);
-    int ascii = static_cast<int>(s[i]);
+    int ascii = static_cast<int>(c);
     int product = ascii * 83; // 83 seems to be best
     int shifted = product >> 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
@@ -123,7 +123,7 @@ void HashTable::printSlotLengths()
             length++;
             current = current->next;
         }
-        cout << "Slot "<<i<< ": " << length << endl;
+        cout << "slot "<<i<< " length:" << length << endl;
     }
 }
 
