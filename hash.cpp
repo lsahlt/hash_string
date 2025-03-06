@@ -26,15 +26,15 @@ for(int i = 0; i < s.size(); i++)
     
     if(vowels.find(c) != string::npos){
     int ascii = static_cast<int>(c);
-    int product = ascii * 31; 
-    int shifted = product << 7; //dont change this variance cracked w 8
+    int product = ascii * 31 * (i + 1); // mult by position because original sucks at small inputs or similar strings
+  int shifted = product << (i % 5 + 3); // vary based on position
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
     }
     else{
     int ascii = static_cast<int>(c);
-    int product = ascii * 83; // 83 seems to be best
-    int shifted = product >> 8; //dont change this variance cracked w 8
+    int product = ascii * 83 * (i + 1);
+  int shifted = product >> (i % 5 + 3)
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
     }   
