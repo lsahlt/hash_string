@@ -123,7 +123,7 @@ void HashTable::printSlotLengths()
             length++;
             current = current->next;
         }
-        cout << "slot "<<i<< " length:" << length << endl;
+        cout << "Slot "<<i<< ": " << length << endl;
     }
 }
 
