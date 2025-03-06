@@ -20,6 +20,7 @@ int HashTable::hash_function(const string &s)
     unsigned int hash_value=0;
 for(int i = 0; i < s.size(); i++)
 {
+    char c = tolower(s[i]);
     int ascii = static_cast<int>(s[i]);
     int product = ascii * 331; //83 other lucky number, large input is 1.055 small is .63 ish with 83
     int shifted = product >> 8; //dont change this variance cracked w 8
