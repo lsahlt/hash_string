@@ -17,7 +17,7 @@ return newNode;
 /*hash function that multiplies each characters ascii value by a prime and then mixes the bits up using a right shift and xor*/
 int HashTable::hash_function(const string &s) 
 {
-    unsigned int hash_value=5319;
+    unsigned int hash_value=5381;
     string vowels = "aeiou";
     
 for(int i = 0; i < s.size(); i++)
@@ -26,15 +26,15 @@ for(int i = 0; i < s.size(); i++)
     
     if(vowels.find(c) != string::npos){
     int ascii = static_cast<int>(c);
-    int product = ascii * 31 * (i + 1); // mult by position because original sucks at small inputs or similar strings
-  int shifted = product << (i % 5 + 3); // vary based on position
+    int product = ascii * 53; // 83 seems to be best
+    int shifted = product << 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
     }
     else{
     int ascii = static_cast<int>(c);
-    int product = ascii * 83 * (i + 1);
-  int shifted = product >> (i % 5 + 3);
+    int product = ascii * 83; // 83 seems to be best
+    int shifted = product >> 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
     }   
