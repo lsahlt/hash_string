@@ -18,15 +18,26 @@ return newNode;
 int HashTable::hash_function(const string &s) 
 {
     unsigned int hash_value=0;
+    string vowels = "aeiou";
+    
 for(int i = 0; i < s.size(); i++)
 {
     char c = tolower(s[i]);
+    
+    if(vowels.find(c) != string::npos){
+    int ascii = static_cast<int>(c);
+    int product = ascii * 53; // 83 seems to be best
+    int shifted = product << 8; //dont change this variance cracked w 8
+    int mixymix = product ^ shifted;
+    hash_value = hash_value ^ mixymix;
+    }
+    else{
     int ascii = static_cast<int>(c);
     int product = ascii * 83; // 83 seems to be best
     int shifted = product >> 8; //dont change this variance cracked w 8
     int mixymix = product ^ shifted;
     hash_value = hash_value ^ mixymix;
-    
+    }   
 }
 return hash_value % numSlots;
 }
