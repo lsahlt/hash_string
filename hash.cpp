@@ -18,7 +18,7 @@ return newNode;
 int HashTable::hash_function(const string &s) 
 {
     unsigned int hash_value=0;
-    string vowels = "aeiou"
+    string vowels = "aeiou";
     
 for(int i = 0; i < s.size(); i++)
 {
